@@ -1,16 +1,11 @@
-FROM node:12.19-alpine As development
+FROM arm32v7/node:12.19-alpine AS build
 
 WORKDIR /usr/src/app
 
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm i
 
-COPY . .
+COPY . ./
 
-RUN npm run build
-
-FROM node:12.19-alpine as production
-
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
+CMD ["npm", "start"]

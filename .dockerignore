@@ -3,6 +3,11 @@
 .git
 .gitignore
 
+.vscode
+
 node_modules
 dist
 test
+coverage
+
+.env
