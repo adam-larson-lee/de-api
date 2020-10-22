@@ -1,4 +1,4 @@
-FROM arm32v7/node:12.19-alpine AS build
+FROM node:12.19.0-alpine AS build
 
 WORKDIR /usr/src/app
 
