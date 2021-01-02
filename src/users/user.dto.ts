@@ -1,6 +1,3 @@
-import { IdDto } from "src/id/id.dto";
-
 export class UserDto {
-  email: string;
-  password: string;
+  constructor(private readonly userId: number) {};
 };

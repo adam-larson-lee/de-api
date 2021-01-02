@@ -7,7 +7,7 @@ import { UsersFactory } from '../users.factory';
 import { UsersService } from '../users.service';
 
 describe('UsersController', () => {
-  let controller: UsersController;
+  let usersController: UsersController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -22,10 +22,10 @@ describe('UsersController', () => {
       ],
     }).compile();
 
-    controller = module.get<UsersController>(UsersController);
+    usersController = module.get<UsersController>(UsersController);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(usersController).toBeDefined();
   });
 });

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { UserDto } from './user.dto';
+import { NewUserDto } from './new-user.dto';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -10,11 +10,17 @@ export class UsersController {
 
   @Get(':userId')
   getUser(@Param('userId') userId: number) {
-    return this.usersService.findByUserId(userId);
+    return this
+      .usersService
+      .findByUserId(userId)
+      .then(this.usersService.toDto);
   }
 
   @Post()
-  getNewUser(@Body() user: UserDto) {
-    return this.usersService.create(user.email, user.password);
+  getNewUser(@Body() user: NewUserDto) {
+    return this
+      .usersService
+      .create(user.email, user.password)
+      .then(this.usersService.toDto);
   }
 }

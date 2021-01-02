@@ -8,7 +8,7 @@ import { UsersFactory } from './users.factory';
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   providers: [UsersService, UsersFactory],
-  exports: [UsersService],
   controllers: [UsersController],
+  exports: [UsersService],
 })
 export class UsersModule {}

@@ -10,10 +10,17 @@ async function bootstrap() {
     .setDescription('The Deck Effect API')
     .setVersion('0.1')
     .addTag('de')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT'
+      },
+      'JWT',
+    )
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
-
 
   await app.listen(3000);
 }
